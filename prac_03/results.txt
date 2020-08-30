@@ -1,0 +1,5 @@
+67 is Passable.
+18 is Bad.
+47 is Bad.
+66 is Passable.
+96 is Excellent.
