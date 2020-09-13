@@ -5,7 +5,7 @@ COLOUR_NAME_TO_HEX = ["aliceblue": "#f0f8ff",
                       "beige": "#f5f5dc",
                       "bisque1": "#ffe4c4",
                       "black": "#000000",
-                      "blanchedalmond": "#ffbcd",
+                      "blanchedalmond": "#ffebcd",
                       "blue1": "#0000ff",
                       "blueviolet": "#8a2be2"]
 name = input("Enter name: ").lower()
