@@ -7,14 +7,24 @@ import os
 
 def main():
     """Demo os module functions."""
-    print("Starting directory is: {}".format(os.getcwd()))
-    print("Files in {}:\n{}\n".format(os.path.join(os.getcwd(),'Lyrics/Christmas'), os.listdir('Lyrics/Christmas')))
-    rename('Lyrics/Christmas')
+    starting_directory = os.getcwd()
+    if starting_directory != os.path.join(os.path.dirname(starting_directory),'prac_09'):
+        os.chdir('prac_09')
+    print("Starting directory is: {}".format(starting_directory))
+    print("Files in {}:\n{}\n".format(os.path.join(starting_directory,'Lyrics','Christmas'), os.listdir(os.path.join('Lyrics','Christmas'))))
+    rename(os.path.join('Lyrics','Christmas'))
+    os.chdir(starting_directory)
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    return new_name
+    name1 = filename[:-3]
+    name2=''
+    for i in range(len(filename[:-4])):
+        if name1[i+1].isupper() and name1[i].islower():
+            name2 = name2 + name1[i] + '_'
+        else:
+            name2 = name2 + name1[i]
+    return '_'.join([word.title() for word in name2.split(' ')]) + filename[-4:].lower()
 
 
 def demo_walk():
@@ -30,7 +40,7 @@ def demo_walk():
 def rename(cd):
     go_back = os.getcwd()
     os.chdir(cd)
-    for filename in os.listdir(cd):
+    for filename in os.listdir('.'):
         if os.path.isdir(filename):
             continue
         
@@ -39,5 +49,5 @@ def rename(cd):
         os.rename(filename, new_name)
     os.chdir(go_back)
 
-main()
+#main()
 demo_walk()
