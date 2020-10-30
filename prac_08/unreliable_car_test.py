@@ -1,0 +1,16 @@
+from unreliable_car import UnreliableCar
+def test():
+    bad_car = UnreliableCar(100,"Bad",50)
+    print(bad_car)
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print("Distance_driven (expected 20):",bad_car.drive(20))
+    print(bad_car)
+test()

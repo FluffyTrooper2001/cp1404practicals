@@ -3,8 +3,8 @@ from car import Car
 import random
 
 class UnreliableCar(Car):
-    def __init__(self, name, fuel, reliability):
-        super().__init__(name, fuel)
+    def __init__(self, fuel, name, reliability):
+        super().__init__(fuel, name)
         assert reliability <= 100 and reliability >= 0
         self.reliability = reliability
     def drive(self, distance):
