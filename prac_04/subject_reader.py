@@ -8,7 +8,8 @@ FILENAME = "subject_data.txt"
 
 def main():
     data = get_data()
-    print(data)
+    neat_data = make_neat(data)
+    print(neat_data)
 
 
 def get_data():
@@ -27,6 +28,12 @@ def get_data():
         data.append(parts)
     input_file.close()
     return data
+
+def make_neat(data):
+    neat_data = ''
+    for line in data:
+        neat_data = neat_data+"{} is taught by {:<12s} and has {:>4d} students\n".format(line[0],line[1],line[2])
+    return neat_data
 
 
 main()

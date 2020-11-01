@@ -6,6 +6,7 @@ MIN_LENGTH = 4
 MAX_LENGTH = 14
 SPECIAL_CHARS_REQUIRED = True
 SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
+  
 
 
 def main():
@@ -29,17 +30,20 @@ def main():
 def is_valid_password(password):
     """Determine if the provided password is valid."""
 
-    if len(password) > MAX_LENGTH or len(password) < MIN_LENGTH:
+    bad_password = False # initial value
+    if len(password)>MAX_LENGTH or len(password)<MIN_LENGTH:
         bad_password = True
-    else:
+    elif password.isdigit() or password.isupper() or password.islower():
+        bad_password = True # opportunity to skip loop for speed
+    else:     
         count_digit = 0
         count_lower = 0
         count_upper = 0
-        if SPECIAL_CHARS_REQUIRED:  # determine if lack of special characters can return a False
+        if SPECIAL_CHARS_REQUIRED: # determine if lack of special characters can return a False
             count_special = 0
         else:
-            count_special = 1  # add a virtual char to meet the requirements
-
+            count_special = 1 # add a virtual char to meet the requirements
+               
         for char in password:
             if char.isdigit():
                 count_digit += 1
@@ -49,9 +53,8 @@ def is_valid_password(password):
                 count_upper += 1
             if char.islower():
                 count_lower += 1
-
+            
         bad_password = not count_digit or not count_special or not count_lower or not count_upper
-    return not bad_password  # returns true if not a bad password
-
+    return not bad_password # returns true if not a bad password
 
 main()

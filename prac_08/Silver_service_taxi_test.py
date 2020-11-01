@@ -5,6 +5,5 @@ def main():
     taxi.start_fare()
     taxi.drive(18)
     fare = taxi.get_fare()
-    print(fare)
-    assert fare > 48.77 and fare < 48.79
+    print(f"${fare:.2f}")
 main()
